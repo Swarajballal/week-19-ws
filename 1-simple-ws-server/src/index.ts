@@ -10,6 +10,7 @@ const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 
 wss.on("connection", async (ws, req) => {
+    console.log("someone connected");
     ws.on("message", (message) => {
         console.log("received: %s", message);
         ws.send(`Hello, you sent -> ${message}`);
