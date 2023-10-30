@@ -16,7 +16,7 @@ export class RedisSubscriptionManager {
         this.subscriber.connect();
         this.subscriptions = new Map<string, string[]>();
         this.reverseSubscriptions = new Map<string, { [userId: string]: { userId: string; ws: any; } }>();
-    }
+    } 
 
     static getInstance() {
         if (!this.instance) {
@@ -87,5 +87,7 @@ export class RedisSubscriptionManager {
     publish(room: string, message: any) {
         console.log(`publishing message to ${room}`);
         this.publisher.publish(room, JSON.stringify(message));
-    }
+    };
+
 }
+
